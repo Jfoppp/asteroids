@@ -4,9 +4,9 @@ from logger import log_state
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    screen: pygame.Surface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
-    dt = 0.0
+    dt: float = 0.0
 
     while True:
         log_state()
@@ -15,7 +15,7 @@ def main():
                 return
         screen.fill("black")
         pygame.display.flip()
-        dt_seconds = clock.tick(TARGET_FPS) / 1000
+        dt = clock.tick(TARGET_FPS) / 1000 # convert from miliseconds to seconds by dividing by 1000
 
 
 if __name__ == "__main__":
